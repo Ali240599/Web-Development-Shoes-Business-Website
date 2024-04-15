@@ -1,0 +1,72 @@
+{% extends 'customer/base.html' %}
+{% load static %}
+{% block content %}
+<div>
+
+
+    <style>
+        body {
+            background-image: url('/static/customer/images/back.jpg');
+            background-repeat: no-repeat;
+            color: white;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+    </style>
+
+
+    <div class="container mb-5">
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-8 col-sm-12 offset-md-1 p-4 text-center">
+                <div class="row justify-content-center mt-5">
+                    <h1 style="font-size: 60px"><b>StepUp Shoes</b></h1>
+                    <center><img src="{% static 'customer/images/Logo.jpg' %}" alt="what image shows" height="150"
+                            width="150">
+                    </center>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-8 col-sm-12 offset-md-1 p-4 text-center">
+
+                <h2>About Us!</h2>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-1">
+            <div class="col-md-10 col-sm-12 offset-md-1 p-4 text-center">
+                <p>
+                <h5>Welcome to StepUp Shoes – Where Every Step is a Style Statement!</h5>
+                </p>
+                <div>
+                    <p>
+                    <h5>We take pride in being the trendsetters of footwear fashion in the heart of Lahore. </h5>
+                    </p>
+                </div>
+                <div>
+                    <div>
+                        <p>
+
+                        <h5>Established with a passion for crafting exceptional shoes, our journey began with the vision to redefine comfort and style for every step you take.</h5>
+                        </p>
+                    </div>
+                    <div>
+                        <p>
+                        <h4>Location: Ground, Emporium Mall, Floor, Lahore, 44000, Punjab,
+                            Pakistan</h4>
+                        </p>
+                    </div>
+                    <div class="row justify-content-center mt-5">
+
+                        <center><img src="{% static 'customer/images/location.jpg' %}" alt="what image shows"
+                                height="400" width="400">
+                        </center>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock content %}

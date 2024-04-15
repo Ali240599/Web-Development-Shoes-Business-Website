@@ -1,0 +1,45 @@
+{% extends 'customer/base.html' %}
+{% load static %}
+{% block content %}
+<div>
+    <div class="container mb-5">
+        <style>
+            body {
+                background-image: url('/static/customer/images/back.jpg');
+                background-repeat: no-repeat;
+                color: white;
+                background-attachment: fixed;
+                background-size: cover;
+            }
+        </style>
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-8 col-sm-12 offset-md-1 p-4 text-center">
+                <h1 style="font-size: 60px"><b>"Discover Your Style: Your Profile Hub"
+                </b></h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mb-5" style="background-color: rgba(26, 24, 24, 0.5); color:white;">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-4 col-sm-12 text-center mb-5">
+            <h2 style="font-size: 30px;">User Details</h2>
+            <p style="font-size: 24px;">Name: {{ user.first_name }} {{ user.last_name }}</p>
+            <p style="font-size: 24px;">User ID: {{ user.username }}</p>
+            <p style="font-size: 24px;">Email: {{ user.email }}</p>
+            <p style="font-size: 24px;">Address: {{ user_address }}</p>
+            <p style="font-size: 24px;">Total Orders: {{ total_orders }}</p>
+        </div>
+        
+    </div>
+    <div class="row justify-content-center">
+        {% for order in user_orders %}
+        <div class="col-md-4 col-sm-12 text-center mb-5">
+            <h2>Date Ordered: {{ order.date_added }}</h2>
+            <p>Total Price: {{ order.total_price }}</p>
+            <!-- Display other order details as needed -->
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}

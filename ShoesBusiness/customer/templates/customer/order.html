@@ -1,0 +1,91 @@
+{% extends 'customer/base.html' %}
+{% load static %}
+{% block content %}
+<div>
+    <div class="container mb-5">
+        <style>
+            body {
+                background-image: url('/static/customer/images/back.jpg');
+                background-repeat: no-repeat;
+                color: white;
+                background-attachment: fixed;
+                background-size: cover;
+
+            }
+        </style>
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-8 col-sm-12 offset-md-1 p-4 text-center">
+
+                <h1 style="font-size: 60px"><b>Elevate Your Style with Our Award-Winning Shoes – Order Now!</b></h1>
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+<div class="container mb-5" style="background-color: rgba(26, 24, 24, 0.5); color:white;">
+
+    <div class="row justify-content-center mt-5">
+
+        <style>
+            /* Add CSS styles for flex container and items */
+            .product-list {
+                display: flex;
+                flex-wrap: wrap;
+                /* Allow items to wrap to the next row if necessary */
+                justify-content: space-between;
+                /* Space items evenly along the main axis */
+                list-style: none;
+                /* Remove list styles */
+                padding: 0;
+            }
+
+            .product-item {
+                flex: 1;
+                /* Grow to fill available space evenly */
+                max-width: 30%;
+                /* Limit item width to avoid overcrowding */
+                margin: 10px;
+                /* Add spacing between items */
+                border: 1px solid #ccc;
+                /* Add a border for visual separation */
+                padding: 10px;
+                text-align: center;
+            }
+
+            /* Style the "Buy Now" button */
+            .buy-now-button {
+                display: block;
+                margin-top: 10px;
+                background-color: green;
+                color: #fff;
+                text-decoration: none;
+                padding: 5px 10px;
+                border-radius: 5px;
+            }
+        </style>
+
+
+
+
+
+        <ul class="product-list">
+            {% for product in products %}
+            <li class="product-item">
+                <img src="{{ product.image.url }}" alt="{{ product.name }}" width="200" height="150">
+                <h2>{{ product.name }}</h2>
+                <p>{{ product.description }}</p>
+                <p>Price: ${{ product.price }}</p>
+                <a href="#" class="buy-now-button">Buy Now</a>
+                <a class="buy-now-button" href="{% url 'add_to_cart' product.id %}">Add to Cart</a>
+
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+</div>
+{% endblock content %}

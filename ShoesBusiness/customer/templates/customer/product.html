@@ -1,0 +1,91 @@
+{% extends 'customer/base.html' %}
+<!-- {% load static %} -->
+{% block content %}
+<div>
+    <div class="container mb-5">
+        <style>
+            body {
+                background-image: url('/static/customer/images/back.jpg');
+                background-repeat: no-repeat;
+                color: white;
+                background-attachment: fixed;
+                background-size: cover;
+
+            }
+        </style>
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-8 col-sm-12 offset-md-1 p-4 text-center">
+                <style>
+                    /* Add CSS styles for flex container and items */
+
+
+                    /* Style the "Buy Now" button */
+                    .buy-now-button {
+                        display: block;
+                        margin-top: 10px;
+                        background-color: green;
+                        color: #fff;
+                        text-decoration: none;
+                        padding: 5px 10px;
+                        border-radius: 5px;
+                    }
+                </style>
+
+                <h2 style="font-size: 40px"><b>Product Details</b></h2>
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+<div class="container mb-5" style="background-color: rgba(26, 24, 24, 0.8); color:white;">
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .main_image {
+            width: 400px;
+            height: 400px;
+        }
+
+        .related_image {
+            width: 100px;
+            height: 100px;
+        }
+
+        /* Style the "Buy Now" button */
+        .buy-now-button {
+            display: block;
+            margin-top: 10px;
+            background-color: green;
+            color: #fff;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+    </style>
+
+
+<h1>{{product.name}}</h1>
+<img src="{{ product.image.url }}" class="main_image" />
+<p>{{product.description}}</p>
+<a class="buy-now-button" style="height:30px;width:140px;" href="{% url 'menu' %}">Back to Products</a>
+<p>
+<h3>Recently Viewed</h3>
+<div class="related">
+    {% for recent_product in recently_viewed_products %}
+    <a href="{% url 'product' recent_product.id %}">
+        <img src="{{ recent_product.image.url }}" alt="" class="related_image">
+    </a>
+
+    {% endfor %}
+</div>
+</div>
+
+{% endblock content %}
